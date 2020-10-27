@@ -1,0 +1,50 @@
+﻿@model AdminPanelViewModel
+@{
+    ViewBag.Title = "Заказы";
+    Layout = "_Layout";
+}
+<section>
+    <div class="row">
+        <div class="col-12 text-left">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success mt-1">@TempData["message"]</div>
+            }
+            <h2 class="py-2">Заказы</h2>
+        </div>
+        <div class="col-12">
+            @if (Model.Orders.Count() > 0)
+            {
+                <table class="table">
+                    <tr>
+                        <th>ID заказа</th>
+                        <th>Клиент</th>
+                        <th>ID машины</th>
+                        @*<th colspan="2">Статус</th>*@
+                    </tr>
+                    @foreach (Order o in Model.Orders)
+                    {
+                        <tr>
+                            <td>@o.Id</td>
+                            <td>@o.UserId</td>
+                            <td>@o.CarId</td>
+                            @*<td>
+                                    <form asp-action="MarkShipped" method="post">
+                                        <input type="hidden" name="orderId" value="@o.Id" />
+                                        <button type="submit" class="btn btn-sm btn-danger">
+                                            Отгрузить
+                                        </button>
+                                    </form>
+                                </td>*@
+                        </tr>
+
+                    }
+                </table>
+            }
+            else
+            {
+                <div class="text-center">Нет заказов</div>
+            }
+        </div>
+    </div>
+</section>

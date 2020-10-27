@@ -1,0 +1,89 @@
+﻿@model FavoriteIndexViewModel
+
+    <div class="container car_list col-12 text-left padding-header" style="margin-top:128px">
+        <h2 class="col-12 text-left">Избранное</h2>
+        <div class="pt-3 favorite_cars col-12 text-left">
+            <section>
+                @foreach (var item in Model.Favorite.Items)
+                {
+                    if (item.Car.IsAvailable == true)
+                    {
+                        <div class="card px-2 m-2 shadow">
+                            <div class="input-group">
+                                <h4 class="text-left car_name">
+                                    @(item.Car.Brand + " " + item.Car.Model)
+                                </h4>
+
+                                <form asp-action="RemoveFromFavorite" method="post">
+                                    <input type="hidden" name="CarID"
+                                           value="@item.Car.Id" />
+                                    <input type="hidden" name="returnUrl"
+                                           value="@Model.ReturnUrl" />
+
+                                    <button type="submit" class="star-marked button-fav"></button>
+
+                                </form>
+                            </div>
+                            <a asp-area="Customer" asp-controller="CarList" asp-action="CarProperties" asp-route-id="@item.Car.Id">
+                                <img class="card-img-top" src="~/images/@(!string.IsNullOrEmpty(item.Car.Photo) ? item.Car.Photo : "car_model.png")" alt="Card image cap" />
+                            </a>
+
+                            <div class="card-body px-0">
+                                <div class="row">
+                                    <div class="col-6 border-right">
+                                        <span class="grey cardescription mainfont">@item.Car.Description</span>
+                                    </div>
+                                    <div class="col-6 pl-0">
+                                        <small>в месяц от</small> <h4><b>&nbsp;@item.Car.MonthlyPrice руб.</b></h4>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="card px-2 m-2 shadow">
+                            <div class="input-group">
+                                <h4 class="text-left car_name">
+                                    @(item.Car.Brand + " " + item.Car.Model)
+                                </h4>
+
+                                <form asp-action="RemoveFromFavorite" method="post">
+                                    <input type="hidden" name="CarID"
+                                           value="@item.Car.Id" />
+                                    <input type="hidden" name="returnUrl"
+                                           value="@Model.ReturnUrl" />
+
+                                    <button type="submit" class="star-marked button-fav"></button>
+
+                                </form>
+                            </div>
+                            <a>
+                                <img class="card-img-top" src="~/images/@(!string.IsNullOrEmpty(item.Car.Photo) ? item.Car.Photo : "car_model.png")" alt="Card image cap" />
+                            </a>
+                            <div class="card-body px-0">
+                                <div class="row">
+                                    <div class="col-12" style="height:56px;">
+                                        <span class="grey cardescription mainfont">Машина временно недоступна<br /> для аренды</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                }
+                @if (Model.Favorite.Items.Count() == 0)
+                {
+                    <h3>Пока что здесь пусто</h3>
+                    <p>Перейдите в каталог и выберите машину себе по душе!</p>
+                    <a asp-area="Customer" asp-controller="CarList" asp-action="Index" class="btn orderbtn brdradius px-4 w-auto">Выбрать авто</a>
+                }
+                else
+                {
+                <div class="mt-4 text-center">
+                    <a href="@Model.ReturnUrl" class="btn orderbtn brdradius w-auto px-4 white px-4 w-auto">Перейти в каталог</a>
+                </div>                    
+                }
+            </section>
+        </div>
+    </div>

@@ -1,0 +1,149 @@
+﻿@model Car
+@{
+    ViewBag.Title = "Редактировать запись";
+    Layout = "_Layout";
+}
+<section class="container-fluid col-12 col-lg-6 h-100 py-2 ">
+        <div class="text-left ml-lg-5">
+            <h2 class="py-2">Редактировать запись</h2>
+        </div>
+        <div class="ml-lg-5">
+            <form asp-action="Edit" method="post" class="text-left">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Brand">Марка</label>
+                    <div><span asp-validation-for="Brand" class="text-danger"></span></div>
+                    <input asp-for="Brand" class="form-control" value="@Model.Brand" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Model">Модель</label>
+                    <div><span asp-validation-for="Model" class="text-danger"></span></div>
+                    <input asp-for="Model" class="form-control" value="@Model.Model" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Year">Год выпуска</label>
+                    <div><span asp-validation-for="Year" class="text-danger"></span></div>
+                    <input asp-for="Year" class="form-control" value="@Model.Year" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Description">Описание</label>
+                    <div><span asp-validation-for="Description" class="text-danger"></span></div>
+                    <input asp-for="Description" class="form-control" value="@Model.Description" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="BodyType">Тип кузова</label>
+                    <div><span asp-validation-for="BodyType" class="text-danger"></span></div>
+                    <input asp-for="BodyType" class="form-control" value="@Model.BodyType" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="EngineSize">Объем двигателя, л</label>
+                    <div><span asp-validation-for="EngineSize" class="text-danger"></span></div>
+                    <input asp-for="EngineSize" class="form-control" value="@Model.EngineSize" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="FuelVolume">Объем топливного бака, л</label>
+                    <div><span asp-validation-for="FuelVolume" class="text-danger"></span></div>
+                    <input asp-for="FuelVolume" class="form-control" value="@Model.FuelVolume" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Fuel">Вид топлива</label>
+                    <div><span asp-validation-for="Fuel" class="text-danger"></span></div>
+                    <input asp-for="Fuel" class="form-control" value="@Model.Fuel" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaxPower">Мощность, л.с.</label>
+                    <div><span asp-validation-for="MaxPower" class="text-danger"></span></div>
+                    <input asp-for="MaxPower" class="form-control" value="@Model.MaxPower" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="MaxSpeed">Максимальная скорость</label>
+                    <div><span asp-validation-for="MaxSpeed" class="text-danger"></span></div>
+                    <input asp-for="MaxSpeed" class="form-control" value="@Model.MaxSpeed" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Acceleration">Разгон до 100 км/ч, сек.</label>
+                    <div><span asp-validation-for="Acceleration" class="text-danger"></span></div>
+                    <input asp-for="Acceleration" class="form-control" value="@Model.Acceleration" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Drive">Привод</label>
+                    <div><span asp-validation-for="Drive" class="text-danger"></span></div>
+                    <input asp-for="Drive" class="form-control" value="@Model.Drive" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="GearBox">Коробка передач</label>
+                    <div><span asp-validation-for="GearBox" class="text-danger"></span></div>
+                    <input asp-for="GearBox" class="form-control" value="@Model.GearBox" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Consumption">Смешанный расход топлива, л/100км</label>
+                    <div><span asp-validation-for="Consumption" class="text-danger"></span></div>
+                    <input asp-for="Consumption" class="form-control" value="@Model.Consumption" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="BootVolume">Объем багажника, л</label>
+                    <div><span asp-validation-for="BootVolume" class="text-danger"></span></div>
+                    <input asp-for="BootVolume" class="form-control" value="@Model.BootVolume" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Doors">Количество дверей</label>
+                    <div><span asp-validation-for="Doors" class="text-danger"></span></div>
+                    <input asp-for="Doors" class="form-control" value="@Model.Doors" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Seats">Количество мест</label>
+                    <div><span asp-validation-for="Seats" class="text-danger"></span></div>
+                    <input asp-for="Seats" class="form-control" value="@Model.Seats" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Color">Цвет</label>
+                    <div><span asp-validation-for="Color" class="text-danger"></span></div>
+                    <input asp-for="Color" class="form-control" value="@Model.Color" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="LicensePlate">Номерной знак автомобиля</label>
+                    <div><span asp-validation-for="LicensePlate" class="text-danger"></span></div>
+                    <input asp-for="LicensePlate" class="form-control" value="@Model.LicensePlate" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Mileage">Пробег</label>
+                    <div><span asp-validation-for="Mileage" class="text-danger"></span></div>
+                    <input asp-for="Mileage" class="form-control" value="@Model.Mileage" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="StartPrice">Предоплата</label>
+                    <div><span asp-validation-for="StartPrice" class="text-danger"></span></div>
+                    <input asp-for="StartPrice" class="form-control" value="@Model.StartPrice" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="MonthlyPrice">Цена в месяц</label>
+                    <div><span asp-validation-for="MonthlyPrice" class="text-danger"></span></div>
+                    <input asp-for="MonthlyPrice" class="form-control" value="@Model.MonthlyPrice" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo">Фото каталога</label>
+                    <div><span asp-validation-for="Photo" class="text-danger"></span></div>
+                    <input asp-for="Photo" class="form-control" value="@Model.Photo" required />
+                </div>
+                <div class="form-group">
+                    <label asp-for="TitlePhoto">Фото обложки</label>
+                    <div><span asp-validation-for="TitlePhoto" class="text-danger"></span></div>
+                    <input asp-for="TitlePhoto" class="form-control" value="@Model.TitlePhoto" required />
+                </div>
+                <div class="col-12 text-center">
+                    <a asp-action="Index" class="btn brdradius_sm btn-outline-dark">Отмена</a>
+                    <button class="btn brdradius_sm button-color" type="submit">Сохранить</button>
+                </div>
+            </form>
+    </div>
+</section>
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $('.custom-file-input').on("change", function () {
+                var fileName = $(this).val().split("\\").pop();
+                $(this).next('.custom-file-label').html(fileName);
+            });
+        });
+    </script>
+}

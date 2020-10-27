@@ -1,0 +1,23 @@
+﻿@model IEnumerable<ApplicationUser>
+@{
+    ViewBag.Title = "Список пользователей";
+    Layout = "_Layout";
+}
+<section class="container-fluid col-12 col-lg-8 h-100 py-2">
+    <div class="text-left">
+        <h2 class="py-2">Список пользователей</h2>
+    </div>
+    <div>
+        <table class="table">
+            @foreach (var user in Model)
+            {
+                <tr>
+                    <td>@user.Email</td>
+                    <td>
+                        <a class="btn button-color" asp-action="Edit" asp-route-userid="@user.Id">Права доступа</a>
+                    </td>
+                </tr>
+            }
+        </table>
+    </div>
+</section>

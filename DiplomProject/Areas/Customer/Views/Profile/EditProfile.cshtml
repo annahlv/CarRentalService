@@ -1,0 +1,58 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Редактировать профиль";
+}
+@{
+    var photo = UserManager.GetUserAsync(User).Result.Photo;
+    string PathToAvatar = !string.IsNullOrEmpty(photo) ? photo : "/svg/usergrey.svg";
+}
+<main class="profile-orders editprofile">
+    <div class="container-fluid userside pt-sm-4">
+
+        <form action="/" method="post" novalidate>
+            <h2 class="text-center text-md-left mr-3">Редактировать профиль</h2>
+            <div class="form-row  uploading  d-flex justify-content-center justify-content-md-start border-bottom">
+                <div class="col-lg-2">
+                    <h3 class="text-center text-md-left">Фото</h3>
+                </div>
+                <img class="" src="@PathToAvatar" alt="Alternate Text" />
+                <div class="col d-flex flex-wrap  align-items-center">
+                    <div class="uploadwrap">
+                        <div class="input-group">
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="inputGroupFile01" required>
+                                <label class="custom-file-label" for="inputGroupFile01">
+                                    <img class="mr-2" src="~/svg/upload.svg" />Загрузить
+                                </label>
+                            </div>
+                        </div>
+
+                        <a href="#" class="mr-auto">Убрать фото</a>
+                    </div>
+                </div>
+            </div>
+            <div class="form-row  d-flex justify-content-center justify-content-sm-start">
+                <div class="col-lg-3">
+                    <h3 class="text-center text-md-left mr-3">Личные данные</h3>
+                </div>
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label for="firstname">Имя</label>
+                        <input type="text" class="form-control" placeholder="First name" aria-label="First name" id="firstname" required>
+                    </div>
+                    <div class="form-group  mb-3">
+                        <label for="lastname">Фамилия</label>
+                        <input type="text" class="form-control" placeholder="Last name" aria-label="last name" id="lastname" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="passw">Пароль</label>
+                        <input type="password" class="form-control" placeholder="Enter your password" aria-label="passw" id="passw" required>
+                    </div>
+                    <button type="submit" class="btn btn-outline-dark">Сохранить</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</main>

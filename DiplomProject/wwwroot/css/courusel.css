@@ -1,0 +1,293 @@
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification 
+for details on configuring this project to bundle and minify static web assets. */
+body {
+    padding-top: 3.125rem;
+    padding-bottom: 0;
+    font-family: 'Open Sans', sans-serif;
+    font-style: normal;
+    font-size: 1rem;
+}
+/*header and footer*/
+.menu {
+    font-size: 0.875rem;
+    height: auto;
+}
+
+.bigmenu {
+    overflow-y: auto;
+}
+
+.menu > div {
+    border-bottom: 1px solid #dee2e6;
+}
+
+.greybox a, .greybox h6 {
+    font-size: 0.75rem;
+    line-height: 0.875rem;
+    font-family: 'Lato', sans-serif;
+    color: #ffffff;
+}
+
+.blackbox a {
+    color: #ffffff;
+    font-size: 0.875rem;
+}
+
+    .blackbox a:hover, .greybox a:hover,
+    .blackbox a:active, .greybox a:active {
+        color: #808080;
+        text-decoration: none;
+    }
+
+h6.greybox {
+    font-weight: 600;
+}
+
+.lasthdbox a {
+    color: #000000;
+}
+
+.lasthdbox input {
+    border: 1px #dee2e6 solid;
+    box-sizing: border-box;
+    border-radius: 0.25rem;
+    -webkit-border-radius: 0.25rem;
+    -moz-border-radius: 0.25rem;
+    border-radius: 0.25rem;
+}
+
+.topmenuinside li a {
+    color: #000000;
+    font-size: 0.875rem;
+}
+
+    .topmenuinside li a:hover,
+    .topmenuinside li a:active {
+        opacity: 0.5;
+    }
+
+.bg-grey {
+    background-color: #333333;
+}
+
+.bg-black {
+    background-color: #000000;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.bg-grey-2 {
+    background-color: #363636;
+}
+
+.staticmenuinside a {
+    line-height: 1.5rem;
+    font-size: 0.875rem;
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.staticmenu a.dropdownButton {
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 2rem;
+    color: #FFFFFF;
+}
+
+.staticmenu a:hover,
+.staticmenu a:active {
+    color: #808080;
+}
+
+.menu .dropdownButton {
+    width: 100%;
+}
+
+.menu div > a {
+    font-size: 0.875rem;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.75px;
+    line-height: 1.5rem;
+    text-decoration: none;
+    color: #000000;
+}
+
+    .menu div > a:hover,
+    .menu div > a:active {
+        opacity: 0.5;
+    }
+
+footer span {
+    font-size: 0.75rem;
+}
+
+.dropdown-menu {
+    transform: translate3d(0px, 35px, 0px) !important;
+}
+
+main {
+    background-color: #ffffff;
+}
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Carousel 
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}*/
+
+/* Make .svg files in the carousel display properly in older browsers */
+/*.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}*/
+
+/* QR code generator */
+/*#qrCode {
+    margin: 15px;
+}*/
+
+.bg-black {
+    background-color: #000000;
+}
+
+.int {
+    background: linear-gradient(180deg, #1DAC57 48.7%, #FFFFFF 48.71%);
+    border: 1px solid #FFFFFF;
+    border-radius: 0.75rem;
+    width: 1rem;
+    height: 1.5rem;
+}
+
+
+
+
+/* Hide/rearrange for smaller screens */
+/*@media screen and (max-width: 767px) {*/
+/* Hide captions */
+/*.carousel-caption {
+        display: none;
+    }*/
+/*}*/
+
+#site-search {
+    border-width: 0;
+    border-bottom: solid transparent 2px;
+    background-color: #000000;
+    background: url('../svg/search.svg') right no-repeat;
+    box-shadow: 0;
+    transition: border-bottom, 2s;
+    transition: width, 2s;
+    -webkit-transition: border-bottom, 2s;
+    width: 3.125rem;
+    margin-right: 1rem;
+}
+
+    #site-search:hover, #site-search:focus, #site-search:active {
+        border-width: 0;
+        border-bottom: solid #ffffff 2px;
+        outline: none;
+        box-shadow: 0;
+        width: 12rem;
+    }
+
+
+li.search {
+    width: 12.5rem;
+}
+
+#site-search_2 {
+    background: url('../svg/search_2.svg') left no-repeat;
+}
+
+.dropdown-toggle::after {
+    content: "";
+    border-top: .6em solid;
+    border-right: .6em solid transparent;
+    border-bottom: 0;
+    border-left: .6em solid transparent;
+    margin-left: auto;
+}
+/*main*/
+.headline {
+    background: url('../images/headline_level_1.png') 100% 100% no-repeat;
+    background-size: cover;
+}
+
+
+/*slider*/
+.programms .card-body {
+    position: absolute;
+    top: 70%;
+}
+
+.card span {
+    font-size: 0.875rem;
+    color: #808080;
+}
+.card-body h4,
+.card-body span
+ {
+    text-align: center;
+}
+@media (min-width: 576px) {
+    .programms .card-body {
+        top: 80%;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .programms .card-body {
+        position: absolute;
+        top: 60%;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .programms .card-body {
+        position: absolute;
+        top: 70%;
+    }
+}
+
+
+@media (min-width: 1200px) {
+    /*header and footer*/
+    .dropdown-toggle::after {
+        display: none;
+    }
+
+    .menu {
+        height: auto;
+    }
+
+    .bigmenu {
+        overflow-y: auto;
+        height: auto;
+    }
+
+    .topmenuinside > li:first-child {
+        border-top: 0;
+    }
+
+    .menu > div {
+        border-bottom: none;
+    }
+
+    .lasthdbox input {
+        opacity: 0.2;
+        border: 1px solid #262626;
+        box-sizing: border-box;
+        border-radius: 4px;
+    }
+    /*main*/
+}

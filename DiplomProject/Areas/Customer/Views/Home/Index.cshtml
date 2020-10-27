@@ -1,0 +1,192 @@
+﻿@model DiplomProject.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Аренда авто Dexcar";
+}
+<style>
+    /* Make the image fully responsive */
+    .carousel-inner img {
+        width: 100%;
+        height: 100%;
+    }
+</style>
+<main class="startpage">
+    <div class="d-flex flex-column bg-white">
+        <section class="jumbotron jumbotron-fluid d-flex headline white">
+            <div class="container d-flex ml-lg-5 ml-xl-0">
+                <div class="row d-flex align-self-center align-content-center align-content-lg-start text-center text-lg-left flex-column">
+                    <div class="col-12 col-lg-8">
+                        <h1>Выбери машину мечты</h1>
+                        <p class="col-lg-8 p-0">Мы предлагаем только лучшие решения по долгосрочной аренде авто, с заботой о клиентах, их безопасности, а также об окружающей среде</p>
+                        <div>
+                            <a asp-area="Customer" asp-controller="CarList" asp-action="Index" class="btn orderbtn brdradius">Выбрать авто</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="container-fluid padding-header">
+            
+            <div class="row about_us mt-lg-5 mb-lg-1">
+                <div class="col-12 col-md-6 col-lg-6" >
+                    <img class="w-100" src="~/images/654.jpg" />
+                </div>
+                <div class="col-12 col-md-6 col-lg-5">
+                    <h2 class="mt-0">Аренда на срок от 6 месяцев</h2>
+                    <p>
+                        Откройте для себя невероятные преимущества долгосрочной аренды Dexcar!
+                        Инновационная формула аренды, включающая более 20 000 км / год.
+                        В стоимость бронирования включены страховка, замена шин, обычное и чрезвычайное обслуживание.
+                    </p>
+                    <div class="text-center text-md-left">
+                        <a asp-area="Customer" asp-controller="Home" asp-action="About" class="btn orderbtn brdradius mt-2 align-self-end">Узнать больше</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12 mb-4 text-center">
+                    <h2>Специальные предложения — успей заказать!</h2>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-4 shadow-sm">
+                        <a asp-area="Customer" asp-controller="CarList" asp-action="CarProperties" asp-route-id="7">
+                            <img class="card-img-top" src="~/images/bmwx1_2020.png" />
+                        </a>
+                        <div class="card-body">
+                            <h3 class="card-text">Новый BMW X1</h3>
+                            <p class="card-text">
+                                Инновационная формула аренды, включающая более 20 000 км / год. В стоимость бронирования включены страховка, замена шин, обычное и чрезвычайное обслуживание.
+
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-4 shadow-sm">
+                        <a asp-area="Customer" asp-controller="CarList" asp-action="CarProperties" asp-route-id="8">
+                            <img class="card-img-top" src="~/images/skoda_19scala.png" />
+                        </a>
+                            <div class="card-body">
+                                <h3 class="card-text">Новая Scoda Scala</h3>
+                                <p class="card-text">
+                                    Инновационная формула аренды, включающая более 20 000 км / год. В стоимость бронирования включены страховка, замена шин, обычное и чрезвычайное обслуживание.
+
+                                </p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card mb-4 shadow-sm">
+                        <a asp-area="Customer" asp-controller="CarList" asp-action="CarProperties" asp-route-id="5">
+                            <img class="card-img-top" src="~/images/smartfor4.png" />
+                        </a>
+                        <div class="card-body">
+                            <h3 class="card-text">Smart Forfour</h3>
+                            <p class="card-text">
+                               Инновационная формула аренды, включающая более 20 000 км / год. В стоимость бронирования включены страховка, замена шин, обычное и чрезвычайное обслуживание.
+                                
+                            </p>
+                            <div class="d-flex justify-content-between align-items-center">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container marketing my-4">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="mb-2">Все включено</h2>
+                    <p class="mb-3">Управляй своим новым автомобилем без забот!</p>
+                </div>
+                <div class="col-lg-4">
+                    <img src="~/images/perk1.png" width="64" height="64" />
+                    <h3>Полное страхование</h3>
+                    <p class="small">Страхование от угона, пожара, погодных явлений, актов вандализма. Полное каско</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/images/perk2.png" width="64" height="64" />
+                    <h3>Обслуживание</h3>
+                    <p class="small">Обычное техобслуживание, запланированное производителем, и внеплановое при любых неисправностях</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/images/perk3.png" width="64" height="64" />
+                    <h3>До 5 водителей</h3>
+                    <p class="small">Возможность установки права вождения до 5 водителей</p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="~/images/perk4.png" width="64" height="64" />
+                    <h3>Дорожная помощь</h3>
+                    <p class="small">24 часа в сутки, 365 дней в году с заменой автомобиля в случае аварии</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/images/perk5.png" width="64" height="64" />
+                    <h3>Зимние шины</h3>
+                    <p class="small">Смена зимней/летней резины включена</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/images/perk6.png" width="64" height="64" />
+                    <h3>Налоги включены</h3>
+                    <p class="small">Регистрационный взнос и налог на собственность включены</p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+        </div>
+        
+
+
+        <div class="container-fluid experience py-5">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h2 class="text-center border-bottom pb-2">Отзывы</h2>
+                </div>
+            </div>
+            <div class="row quotbox my-3">
+                <div class="col-12 col-lg-2 text-center text-lg-center">
+                    <img src="~/images/avatar1.png" class="img-circle float-lg-right my-3" />
+                </div>
+                <div class="col-12 col-lg-3 ">
+                    <img src="~/svg/sign.svg" class="my-3" /><p>Как начинающему водителю, аренда Dexcar очень удобна для меня. Машины застрахованы от аварий и несчастных случаев, поэтому я могу не беспокоиться о непредсказуемых финансовых затратах.<br><span class="xsfontsize">Ирина Горбачева, медсестра</span></p>
+                </div>
+                <div class="col-12 col-lg-2 text-center text-lg-center ">
+                    <img src="~/images/avatar2.png" class="img-circle float-lg-right my-3" />
+                </div>
+                <div class="col-12 col-lg-3">
+                    <img src="~/svg/sign.svg" class="my-3" /><p>Я очень доволен, что получил свою машину в установленный срок. Менеджеры по работе с клиентами постоянно информировали меня о состоянии моего заказа. К тому же машина пришла ко мне в идеальном состоянии.<br><span class="xsfontsize">Иван Калинин, менеджер</span></p>
+                </div>
+            </div>
+        </div>
+        <div class="container py-5 contact">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>Обратная связь</h2>
+                    <p class="mt-4">Остались вопросы? Напишите нам, и получите дополнительную информацию о нашем сервисе на почту.</p>
+                </div>
+                <div class="offset-md-2 col-md-5">
+                    <form class="needs-validation my-3 pt-2 pb-3" asp-action="SendFeedback" method="post" >
+                        <div class="form-group requiredRow mail">
+                            <label for="inputEmail">Email</label>
+                            <input id="inputEmail" name="email" type="email" class="form-control required" title="" asp-for="Email" required/>@*<span class="msg error">Not a valid email address</span>*@
+                            <span class="msg success"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_message">Сообщение</label>
+                            @*<input type="text" id="user_message" name="user_message" class="form-control commanClass" placeholder="" required>*@
+                            <textarea class="form-control commanClass" id="user_message" rows="5" name="user_message" asp-for="Text" required></textarea>
+                        </div>
+                        <button type="submit" class="btn button-color float-right brdradius allsendbuttons">Отправить</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</main>

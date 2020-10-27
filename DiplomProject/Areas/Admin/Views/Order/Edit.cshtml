@@ -1,0 +1,35 @@
+﻿@model OrderViewModel
+@{
+    ViewBag.Title = "Редактировать заказ";
+    Layout = "_Layout";
+}
+<section class="container-fluid col-12 col-lg-8 h-100 py-2">
+    <div class="text-left">
+        <h2 class="py-2">Редактировать заказ №@Model.Order.Id</h2>
+    </div>
+    <div>
+        <form asp-action="Edit" method="post">
+            <input type="hidden" asp-for="Order.Id" />
+            <div class="form-group">
+                <label>Статус заказа</label>
+                <select name="state" asp-for="StateId" required class="form-control">
+                    <option value="1">На рассмотрении</option>
+                    <option value="2">Подтвержден</option>
+                    <option value="3">Отклонен</option>
+                    <option value="4">Активен</option>
+                    <option value="5">Завершен</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Дата получения</label><input asp-for="Order.StartRent" class="form-control" type="date" />
+            </div>
+            <div class="form-group">
+                <label>Дата окончания</label><input asp-for="Order.EndRent" class="form-control" type="date" />
+            </div>
+            <div class="col-12 text-center">
+                <a asp-action="Index" class="btn brdradius_sm btn-outline-dark">Отмена</a>
+                <button class="btn brdradius_sm button-color" type="submit">Сохранить</button>
+            </div>
+        </form>
+    </div>
+</section>

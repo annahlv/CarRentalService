@@ -1,0 +1,23 @@
+﻿<li class="nav-item dropdown d-flex justify-content-center align-items-center">
+
+    <a class="nav-link text-uppercase dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+        <img src="~/svg/userwhite.svg" />
+    </a>
+    <div class="dropdown-menu usernavmenu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" asp-area="Customer" asp-controller="Profile" asp-action="Orders">
+            <img src="~/svg/usergray_last.svg" class="mr-2" />Профиль
+        </a>
+        @if (User.IsInRole("admin"))
+        {
+            <a class="dropdown-item" asp-area="Admin" asp-controller="Order" asp-action="Index">
+                <img src="~/svg/adminpanel.svg" class="mr-2" />Администратор
+            </a>
+        }
+        <a class="dropdown-item" asp-area="Customer" asp-controller="Profile" asp-action="Notifications">
+            <img src="~/svg/bell.svg" class="mr-2" />Уведомления</a>
+        <form class="form-inline dropdown-item text-center" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button type="submit" class=" btn text-uppercase">Выйти</button>
+        </form>
+    </div>
+
+</li>

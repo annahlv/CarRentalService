@@ -1,0 +1,155 @@
+﻿@model CarListViewModel
+<form method="post" asp-action="Index" asp-controller="CarList" style="margin-top:96px;">
+    <ul class="nav flex-column p-3 my-3">
+        <li class="nav-item">
+            <h3>Фильтр</h3>
+        </li>
+        <li class="nav-item car_type">
+            <div class="form-group">
+                <div class="dropdown">
+                    <img class="svg" src="~/svg/righticon.svg" /><label> </label>
+                    <button class="btn filter-drop" type="button" id="dropdownCheckButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Марка</button>
+                    <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
+                        @foreach (var brand in Model.Brands)
+                        {
+                            <div class="form-group pl-2">
+                                <div class="pretty p-image p-plain">
+                                    <input type="checkbox" name="brand_@brand" value="@brand" />
+                                    <div class="state">
+                                        <img class="image" src="~/images/checkmark-24.png"> <label>@brand</label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item car_type">
+            <div class="form-group">
+                <div class="dropdown">
+                    <img class="svg" src="~/svg/righticon.svg" /><label> </label>
+                    <button class="btn filter-drop" type="button" id="dropdownCheckButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Тип кузова</button>
+                    <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
+                        @foreach (var body in Model.Bodytypes)
+                        {
+                            <div class="form-group pl-2">
+                                <div class="pretty p-image p-plain">
+                                    <input type="checkbox" name="body_@body" value="@body" />
+                                    <div class="state">
+                                        <img class="image" src="~/images/checkmark-24.png"> <label>@body</label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item car_type">
+            <div class="form-group">
+                <div class="dropdown">
+                    <img class="svg" src="~/svg/righticon.svg" /><label> </label>
+                    <button class="btn filter-drop" type="button" id="dropdownCheckButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Коробка передач</button>
+                    <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
+                        @foreach (var gearbox in Model.GearBoxes)
+                        {
+                            <div class="form-group pl-2">
+                                <div class="pretty p-image p-plain">
+                                    <input type="checkbox" name="gearbox_@gearbox" value="@gearbox" />
+                                    <div class="state">
+                                        <img class="image" src="~/images/checkmark-24.png"> <label>@gearbox</label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item car_type">
+            <div class="form-group">
+                <div class="dropdown">
+                    <img class="svg" src="~/svg/righticon.svg" /><label> </label>
+                    <button class="btn filter-drop" type="button" id="dropdownCheckButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Тип топлива</button>
+                    <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
+                        @foreach (var fuel in Model.Fuel)
+                        {
+                            <div class="form-group pl-2">
+                                <div class="pretty p-image p-plain">
+                                    <input type="checkbox" name="fuel_@fuel" value="@fuel" />
+                                    <div class="state">
+                                        <img class="image" src="~/images/checkmark-24.png"> <label>@fuel</label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="nav-item car_type">
+            <div class="form-group">
+                <div class="dropdown">
+                    <img class="svg" src="~/svg/righticon.svg" /><label> </label>
+                    <button class="btn filter-drop" type="button" id="dropdownCheckButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Год выпуска</button>
+                    <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
+                        @foreach (var year in Model.Years)
+                        {
+                            <div class="form-group pl-2">
+                                <div class="pretty p-image p-plain">
+                                    <input type="checkbox" name="year_@year" value="@year" />
+                                    <div class="state">
+                                        <img class="image" src="~/images/checkmark-24.png"> <label>@year</label>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li class="nav-item car_type">
+            <div class="form-group">
+                <div class="dropdown">
+                    <img class="svg" src="~/svg/righticon.svg" /><label> </label>
+                    <button class="btn filter-drop" type="button" id="dropdownCheckButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Пробег, км</button>
+                    <div class="dropdown-menu shadow" aria-labelledby="dropdownMenuButton">
+                        <div class="form-group pl-2">
+                            <input type="radio" name="mileage" value="999999" checked />
+                            <span>Любой</span><br />
+                            <input type="radio" name="mileage" value="0" />
+                            <span>Новое авто</span><br />
+                            <input type="radio" name="mileage" value="50000" />
+                            <span>До 50.000</span><br />
+                            <input type="radio" name="mileage" value="100000" />
+                            <span>До 100.000</span><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+        <li class="range border-top py-3">
+            <h4 class="mb-4">Цена в месяц, руб. </h4>
+            <input type="text" class="js-range-slider" id="range" name="my_range" value="" />
+            <input type="hidden" id="input_from" name="input_from" value="" />
+            <input type="hidden" id="input_to" name="input_to" value="" />
+        </li>
+
+        <li class="show my-1 mt-3">
+            <button type="submit" class="btn btn-block brdradius_sm button-color">
+                Показать результаты
+            </button>
+        </li>
+        <li class="reset my-1">
+            <a class="btn btn-block brdradius_sm btn-outline-dark"
+               asp-action="Index"
+               asp-controller="CarList">
+                Сброс
+            </a>
+        </li>
+
+    </ul>
+
+</form>

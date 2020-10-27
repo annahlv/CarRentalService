@@ -1,0 +1,62 @@
+﻿@model Car
+@if (Model.IsAvailable == true)
+{
+    <div class="card px-2 m-2 shadow">
+        <div class="input-group">
+            <h4 class="text-left car_name">
+                @(Model.Brand + " " + Model.Model)
+            </h4>
+            <form id="@Model.Id" asp-action="AddToFavorite"
+                  asp-controller="Favorite" method="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" name="returnUrl"
+                       value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+                <button type="submit" class="star button-fav"></button>
+            </form>
+        </div>
+        <a asp-area="Customer" asp-controller="CarList" asp-action="CarProperties" asp-route-id="@Model.Id">
+            <img class="card-img-top" src="~/images/@(!string.IsNullOrEmpty(Model.Photo) ? Model.Photo : "car_model.png")" alt="Card image cap" />
+        </a>
+        <div class="card-body px-0">
+            <div class="row">
+                <div class="col-6 border-right">
+                    <span class="grey cardescription mainfont">@Model.Description</span>
+                </div>
+                <div class="col-6 pl-0">
+                    <small>в месяц от</small> <h4><b>&nbsp;@Model.MonthlyPrice руб.</b></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="card px-2 m-2 shadow">
+        <div class="input-group">
+            <h4 class="text-left car_name">
+                @(Model.Brand + " " + Model.Model)
+            </h4>
+            <form id="@Model.Id" asp-action="AddToFavorite"
+                  asp-controller="Favorite" method="post">
+                <input type="hidden" asp-for="Id" />
+                <input type="hidden" name="returnUrl"
+                       value="@ViewContext.HttpContext.Request.PathAndQuery()" />
+
+                <button type="submit" class="star button-fav"></button>
+            </form>
+        </div>
+        <a>
+            <img class="card-img-top" src="~/images/@(!string.IsNullOrEmpty(Model.Photo) ? Model.Photo : "car_model.png")" style="opacity:0.4;" alt="Card image cap" />
+        </a>
+        <div class="card-body px-0">
+            <div class="row">
+                <div class="col-12" style="height:56px;">
+                    <span class="grey cardescription mainfont">Машина временно недоступна<br /> для аренды</span>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+

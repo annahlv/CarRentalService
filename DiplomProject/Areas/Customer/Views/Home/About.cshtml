@@ -1,0 +1,121 @@
+﻿@model DiplomProject.ViewModels.HomeViewModel
+@{
+    ViewData["Title"] = "О компании";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <main>
+        <div class="container-fluid padding-header" style="margin-top:48px">
+            <h1 class="align-self-left justify-content-left">О компании</h1>
+            <div class="row about_us mt-lg-4 mb-lg-1">
+                <div class="col-12 col-lg-4">
+                    <img class="w-100" src="~/images/33193.jpg"/>
+                </div>
+                <div class="col-12 col-lg-8">
+                    <h3 class="mb-2">
+                        Dexcar смотрит в будущее с уверенностью, уважением к окружающей среде, стремлением к технологическим и экономическим инновациям!
+                    </h3>
+                    <p class="m-0">
+                        Компания зародилась в 2014 году с целью создания сервиса долгосрочной аренды автомобилей, ориентированной на частных лиц. Механизм аренды прост и ориентирован на людей, их безопасность и окружающую среду.
+                        <br /><br />
+                        Наш сервис долгосрочной аренды предназначен для тех, кто хочет быть уверенным в завтрашнем дне. Аренда включает в себя страхование, полное КАСКО, автомобильные налоги, обычное и чрезвычайное обслуживание, замену шин и помощь на дороге.
+                    </p>
+                    <h3 class="text-center">
+                        <a href="~/DexcarTermsOfUse.pdf" class="btn orderbtn brdradius w-auto px-4 my-3" target="_blank">Скачать условия договора</a>
+                    </h3>
+                </div>
+            </div>
+            
+        </div>
+        <div class="container marketing my-3">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <h2 class="mb-2">Все включено</h2>
+                    <p class="mb-3">Управляй своим новым автомобилем без забот!</p>
+                </div>
+                <div class="col-lg-4">
+                    <img src="~/images/perk1.png" width="64" height="64" />
+                    <h3>Полное страхование</h3>
+                    <p class="small">Страхование от угона, пожара, погодных явлений, актов вандализма. Полное каско</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/images/perk2.png" width="64" height="64" />
+                    <h3>Обслуживание</h3>
+                    <p class="small">Обычное техобслуживание, запланированное производителем, и внеплановое при любых неисправностях</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/images/perk3.png" width="64" height="64" />
+                    <h3>До 5 водителей</h3>
+                    <p class="small">Возможность установки права вождения до 5 водителей</p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+            <div class="row">
+                <div class="col-lg-4">
+                    <img src="~/images/perk4.png" width="64" height="64" />
+                    <h3>Дорожная помощь</h3>
+                    <p class="small">24 часа в сутки, 365 дней в году с заменой автомобиля в случае аварии</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/images/perk5.png" width="64" height="64" />
+                    <h3>Зимние шины</h3>
+                    <p class="small">Смена зимней/летней резины включена</p>
+                </div><!-- /.col-lg-4 -->
+                <div class="col-lg-4">
+                    <img src="~/images/perk6.png" width="64" height="64" />
+                    <h3>Налоги включены</h3>
+                    <p class="small">Регистрационный взнос и налог на собственность включены</p>
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+        </div>
+
+
+
+        <div class="container-fluid experience py-5">
+            <div class="row">
+                <div class="col-12 d-flex justify-content-center">
+                    <h2 class="text-center border-bottom pb-2">Отзывы</h2>
+                </div>
+            </div>
+            <div class="row quotbox my-3">
+                <div class="col-12 col-lg-2 text-center text-lg-center">
+                    <img src="~/images/avatar1.png" class="img-circle float-lg-right my-3" />
+                </div>
+                <div class="col-12 col-lg-3 ">
+                    <img src="~/svg/sign.svg" class="my-3" /><p>Как начинающему водителю, аренда Dexcar очень удобна для меня. Машины застрахованы от аварий и несчастных случаев, поэтому я могу не беспокоиться о непредсказуемых финансовых затратах.<br><span class="xsfontsize">Ирина Горбачева, медсестра</span></p>
+                </div>
+                <div class="col-12 col-lg-2 text-center text-lg-center ">
+                    <img src="~/images/avatar2.png" class="img-circle float-lg-right my-3" />
+                </div>
+                <div class="col-12 col-lg-3">
+                    <img src="~/svg/sign.svg" class="my-3" /><p>Я очень доволен, что получил свою машину в установленный срок. Менеджеры по работе с клиентами постоянно информировали меня о состоянии моего заказа. К тому же машина пришла ко мне в идеальном состоянии.<br><span class="xsfontsize">Иван Калинин, менеджер</span></p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="container py-5 contact">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2>Обратная связь</h2>
+                    <p class="mt-4">Остались вопросы? Напишите нам, и получите дополнительную информацию о нашем сервисе на почту.</p>
+                </div>
+                <div class="offset-md-2 col-md-5">
+                    <form class="needs-validation my-3 pt-2 pb-3" asp-action="SendFeedback" method="post" >
+                        <div class="form-group requiredRow mail">
+                            <label for="inputEmail">Email</label>
+                            <input id="inputEmail" name="email" type="email" class="form-control required" title="" asp-for="Email" required/>@*<span class="msg error">Not a valid email address</span>*@
+                            <span class="msg success"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="user_message">Сообщение</label>
+                            @*<input type="text" id="user_message" name="user_message" class="form-control commanClass" placeholder="" required>*@
+                            <textarea class="form-control commanClass" id="user_message" rows="5" name="user_message" asp-for="Text" required></textarea>
+                        </div>
+                        <button type="submit" class="btn button-color float-right brdradius allsendbuttons">Отправить</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>

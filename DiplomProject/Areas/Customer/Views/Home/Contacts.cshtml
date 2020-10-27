@@ -1,0 +1,60 @@
+﻿@model DiplomProject.ViewModels.HomeViewModel
+
+@{
+    ViewData["Title"] = "Контакты";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="container">
+        <div class="row">
+
+            <div class="col-12 mt-4 d-flex flex-column">
+
+                <div class="col-12">
+                    
+                    <div class="row">
+                        <div class="col-12 col-lg-4 py-3 contacts-page">
+                            <h1 class="align-self-left justify-content-left mb-4">Контакты</h1>
+                            <ul class="fa-ul ml-4">
+                                <li class="my-3 pl-2">
+                                    Dexcar, ул.Лынькова, 52, Минск, Беларусь
+                                </li>
+                                <li class="my-3 pl-2">+375 (25) 724-85-55</li>
+                                <li class="my-3 pl-2">info@dexcar.by</li>
+                            </ul>
+                        </div>
+                        <div class="col-12 col-lg-8">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1685.216250877962!2d27.473068548799084!3d53.93019026798587!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46dbc51ed0957af7%3A0x3442ff7e681051bd!2z0YPQu9C40YbQsCDQnNC40YXQsNGB0Y8g0JvRi9C90YzQutC-0LLQsCA1Miwg0JzRltC90YHQug!5e0!3m2!1sru!2sby!4v1592248206678!5m2!1sru!2sby" width="800" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="container py-5 contact">
+        <div class="row">
+            <div class="col-md-5">
+                <h2>Обратная связь</h2>
+                <p class="mt-4">Остались вопросы? Напишите нам, и получите дополнительную информацию о нашем сервисе на почту.</p>
+            </div>
+            <div class="offset-md-2 col-md-5">
+                <form class="needs-validation my-3 pt-2 pb-3" asp-action="SendFeedback" method="post" >
+                    <div class="form-group requiredRow mail">
+                        <label for="inputEmail">Email</label>
+                        <input id="inputEmail" name="email" type="email" class="form-control required" title="" asp-for="Email" required/>@*<span class="msg error">Not a valid email address</span>*@
+                        <span class="msg success"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_message">Сообщение</label>
+                        @*<input type="text" id="user_message" name="user_message" class="form-control commanClass" placeholder="" required>*@
+                        <textarea class="form-control commanClass" id="user_message" rows="5" name="user_message" asp-for="Text" required></textarea>
+                    </div>
+                    <button type="submit" class="btn button-color float-right brdradius allsendbuttons">Отправить</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</main>

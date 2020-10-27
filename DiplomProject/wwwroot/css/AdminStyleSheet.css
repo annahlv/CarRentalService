@@ -1,0 +1,117 @@
+﻿
+aside {
+    width: 100%;
+    /*width: 24.25%;*/
+    /*width: 18.1875rem;*/
+}
+
+.pretty.p-svg .state .svg {
+    top: calc((0% - (100% - 1em)) - 8%);
+}
+
+.pretty .state label:before, .pretty .state label:after {
+    top: calc((0% - (100% - 1.2em)) - 8%);
+}
+
+.pretty .state label {
+    font-weight: 600;
+}
+
+.usermsg > button {
+    font-family: Open Sans;
+    font-weight: normal;
+    font-size: 0.875rem;
+    line-height: 1.5rem;
+}
+/**/
+/*AdminVouchersDetails*/
+
+.avatar-img {
+    width: 4rem;
+    height: 4rem;
+}
+
+.customermenubox h4 {
+    font-family: Evolventa;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 1.125rem;
+    line-height: 1.5rem;
+    margin-bottom: 0;
+}
+
+
+.customers-menu a {
+    color: #999999;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 0.875rem;
+    line-height: 2rem;
+    padding: 0 0.5rem 0 0;
+    text-decoration-line: underline;
+}
+
+.customermenu nav {
+    width: 78.75vw;
+}
+
+
+.customermenu a {
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1.5rem;
+    color: #000000;
+    border-bottom: 2px solid #C4C4C4;
+    padding: 0.25rem 2.0625rem;
+    text-decoration-line: none;
+}
+
+    .customermenu a:hover, .customermenu a:active, .customermenu a.active {
+        font-weight: 600;
+        border-bottom: 3px solid #E51A1A;
+    }
+
+
+a.togglelink {
+    padding-left: 1.5rem;
+    text-decoration-line: none;
+    background: url('../svg/paymentscaret.svg') center left no-repeat;
+}
+
+select.brdradius_sm {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+input.brdradius_sm {
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+
+
+/**/
+@media (min-width: 768px) {
+}
+
+@media (min-width: 992px) {
+    aside {
+        width: 24.25%;
+    }
+
+    .supportchatbox {
+        width: 59.08%;
+    }
+}
+
+@media (min-width: 1200px) {
+    aside {
+        width: 24.25%;
+        min-width: 18.1875rem;
+    }
+
+}

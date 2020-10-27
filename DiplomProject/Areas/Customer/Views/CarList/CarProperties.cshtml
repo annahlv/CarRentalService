@@ -1,0 +1,343 @@
+﻿@using DiplomProject.Models
+@using Microsoft.AspNetCore.Identity
+@model Car
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+@{
+    ViewData["Title"] = "Заказать авто";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main>
+    <div class="d-flex flex-column bg-white py-0">
+        <section class="jumbotron jumbotron-fluid px-0 d-flex headline white" style="background-image: url(/images/alpha.png), url(/images/@Model.TitlePhoto); background-repeat: no-repeat, no-repeat;  background-size: cover, cover; background-position: center, center;">
+            <div class="container-fluid padding-header d-none d-sm-flex">
+                <div class="row d-flex align-self-end flex-column">
+                    <div class="col-12">
+                        <h1>
+                            @(Model.Brand + " " + Model.Model)
+                        </h1>
+                        <h2>@Model.Description</h2>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="d-flex d-sm-none">
+            <div class="container-fluid padding-header">
+                <div class="row d-flex align-self-end flex-column">
+                    <div class="col-12">
+                        <h4>
+                            @(Model.Brand + " " + Model.Model)
+                        </h4>
+                        <h5>@Model.Description</h5>
+                    </div>
+                </div>
+            </div>
+        </section>
+        @*<div class="container-fluid padding-header text-center py-3 gallery">
+            <h2>Gallery</h2>
+
+            <div class="row d-flex flex-row car_model  your-class">
+                <div class="col-12 popup-gallery">
+
+                    @foreach (var image in Model.Photo)
+
+
+                        {
+
+                            <a href="~/images/@(!string.IsNullOrEmpty(image) ? image : "car_model.png")" title="">
+                                <div class="card" style="background: url(/images/@(!string.IsNullOrEmpty(image) ? image : "car_model.png")) center center  no-repeat; background-size: cover;"></div>
+
+                            </a>
+
+                        }
+
+                </div>
+                <div class="col-12 text-center">
+                    <a href="#" class="btn mt-5 orderbtn brdradius d-lg-none">View all</a>
+                </div>
+            </div>
+        </div>*@
+
+
+
+
+
+        <div class="container features">
+            <div class="row border-bottom py-3">
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                    <div class="round d-flex justify-content-center align-items-center">
+                        <h2 class="spec">@Model.MaxPower</h2>
+                    </div>
+                    <h4>Мощность</h4>
+                    <span>л.с. </span>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                    <div class="round d-flex justify-content-center align-items-center">
+                        <h2 class="spec">@Model.EngineSize</h2>
+                    </div>
+                    <h4>Объем двигателя</h4>
+                    <span>литр</span>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                    <div class="round d-flex justify-content-center align-items-center">
+                        <h2 class="spec">@Model.MaxSpeed</h2>
+                    </div>
+                    <h4>Макс. скорость</h4>
+                    <span>км / ч </span>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                    <div class="round d-flex justify-content-center align-items-center">
+                        <h2 class="spec">@Model.Acceleration</h2>
+                    </div>
+                    <h4>Разгон</h4>
+                    <span>0-100 км / ч </span>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                    <div class="round d-flex justify-content-center align-items-center">
+                        <h2 class="spec">@Model.Consumption</h2>
+                    </div>
+                    <h4>Расход топлива</h4>
+                    <span>л / 100 км </span>
+                </div>
+                <div class="col-6 col-sm-4 col-md-3 col-lg-2 text-center">
+                    <div class="round d-flex justify-content-center align-items-center">
+                        <h2 class="spec">@Model.Seats</h2>
+                    </div>
+                    <h4>Количество мест</h4>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div id="accordion">
+                        <div class="card-header bg-white border-0" id="headingOne">
+                            <h4 class="mb-0">
+                                <button class="specs-btn" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    Все характеристики
+                                </button>
+                            </h4>
+                        </div>
+
+                        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+                            <div class="card-body py-0">
+                                <table class="table table-sm">
+                                    <tr>
+                                        <td>
+                                            Год выпуска
+                                        </td>
+                                        <td>
+                                            @Model.Year
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Пробег
+                                        </td>
+                                        @if (Model.Mileage == 0)
+                                        {
+                                            <td>Новое авто</td>
+                                        }
+                                        else
+                                        {
+                                            <td>
+                                                @Model.Mileage
+                                            </td>
+                                        }
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Тип кузова
+                                        </td>
+                                        <td>
+                                            @Model.BodyType
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Вид топлива
+                                        </td>
+                                        <td>
+                                            @Model.Fuel
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Объем топливного бака, л
+                                        </td>
+                                        <td>
+                                            @Model.FuelVolume
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Макc. мощность, л.с.
+                                        </td>
+                                        <td>
+                                            @Model.MaxPower
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Макс. скорость, км/ч
+                                        </td>
+                                        <td>
+                                            @Model.MaxSpeed
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Ускорение до 100 км/ч, сек.
+                                        </td>
+                                        <td>
+                                            @Model.Acceleration
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Коробка передач
+                                        </td>
+                                        <td>
+                                            @Model.GearBox
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Смешанный расход топлива, л/100 км
+                                        </td>
+                                        <td>
+                                            @Model.Consumption
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Объем двигателя, л
+                                        </td>
+                                        <td>
+                                            @Model.EngineSize
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Привод
+                                        </td>
+                                        <td>
+                                            @Model.Drive
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Объем багажника, л
+                                        </td>
+                                        <td>
+                                            @Model.BootVolume
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Количество мест
+                                        </td>
+                                        <td>
+                                            @Model.Seats
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Количество дверей
+                                        </td>
+                                        <td>
+                                            @Model.Doors
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            Цвет
+                                        </td>
+                                        <td>
+                                            @Model.Color
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                        
+                    </div>
+                </div>
+            <div class="row my-3">
+                <div class="col-md-6">
+                 
+                    <h3 class="my-3">В сервис включены:</h3>
+                    <ul class="row my-3">
+                        <li class="col-6 py-2">
+                            Полное страхование
+                        </li>
+                        <li class="col-6 py-2">
+                            Каско
+                        </li>
+                        <li class="col-6 py-2">
+                            Техобслуживание
+                        </li>
+                        <li class="col-6 py-2">
+                            Топливные ваучеры
+                        </li>
+                        <li class="col-6 py-2">
+                            До 5 водителей
+                        </li>
+                        <li class="col-6 py-2">
+                            Сезонные шины
+                        </li>
+                        <li class="col-6 py-2">
+                            Дорожная помощь
+                        </li>
+                        <li class="col-6 py-2">
+                            Налоги входят в стоимость аренды
+                        </li>
+                    </ul>
+                   
+
+                </div>
+                <div class="col-md-6">
+                    <div class="row my-3 border-bottom">
+                        <div class="col-8">
+                            <h3>@(Model.Brand + " " + Model.Model)</h3>
+                        </div>
+                        <div class="col-8 d-flex flex-column justify-content-center align-items-center ">
+                            <img class="img-fluid" src="~/images/@(!string.IsNullOrEmpty(Model.Photo) ? Model.Photo : "car_model.png")" />
+                        </div>
+                        <div class="col-4">
+                            <ul class="list-unstyled">
+                                <li class="my-3">
+                                    Предоплата:<br /> @Model.StartPrice.ToString() руб.
+                                </li>
+                                @*<li class="my-3">Километры: <br />@(Model.Mileage.ToString() + " км")</li>*@
+                                <li class="my-3">Цена в месяц от <br /><h3 class="my-2">@Model.MonthlyPrice.ToString() руб.</h3></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row my-3 mr-2 text-right justify-content-end">
+
+                            @if (SignInManager.IsSignedIn(User))
+                            {
+                                <a asp-area="Customer" asp-action="Checkout" asp-controller="Order" asp-route-id="@Model.Id">
+                                    <button type="button" class="btn brdradius_sm button-color float-right">Забронировать</button>
+                                </a>
+                            }
+                            else
+                            {
+                                <a asp-area="Identity" asp-page="/Account/Login" target="_blank">
+                                    <button type="button" class="btn brdradius_sm button-color float-right">Забронировать</button>
+                                </a>
+                            }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</main>

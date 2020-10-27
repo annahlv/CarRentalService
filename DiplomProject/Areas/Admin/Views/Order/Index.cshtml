@@ -1,0 +1,72 @@
+﻿@model AdminPanelViewModel
+@{
+    ViewBag.Title = "Заказы";
+    Layout = "_Layout";
+}
+<section class="d-block">
+    <div class="row">
+        <div class="col-12 text-left">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success mt-1">@TempData["message"]</div>
+            }
+            <h2 class="py-2">Заказы</h2>
+        </div>
+        <div class="col-12">
+            @if (Model.Orders.Count() > 0)
+            {
+                <table class="table">
+                    <tr>
+                        <th>ID</th>
+                        <th>Клиент</th>
+                        <th>Email</th>
+                        <th>Телефон</th>
+                        <th>Модель</th>
+                        @*<th>ID машины</th>*@
+                        <th>Дата размещения</th>
+                        <th>Начало аренды</th>
+                        <th>Конец аренды</th>
+                        <th>Статус заказа</th>
+                        <th>Действия</th>
+
+                    </tr>
+                    @foreach (Order o in Model.Orders.OrderByDescending(p => p.OrderPlaced))
+                    {
+                        var u = Model.Users.Where(p => p.Id == o.UserId).FirstOrDefault();
+                        var c = Model.Cars.Where(p => p.Id == o.CarId).FirstOrDefault();
+                        var s = Model.States.Where(p => p.Id == o.StateId).FirstOrDefault();
+
+                        <tr>
+                            <td>@o.Id</td>
+                            <td>@(u.Name + " " + u.Surname)</td>
+                            <td>@u.Email</td>
+                            <td>@u.Phone</td>
+                            <td>@(c.Brand + " " + c.Model)</td>
+                            <td>@o.OrderPlaced.ToString("d")</td>
+                            <td>@o.StartRent.Value.ToString("d")</td>
+                            <td>@o.EndRent.Value.ToString("d")</td>
+                            <td>@s.State</td>
+                            @*<td style="min-width:210px;">
+                                <form asp-action="ChangeState" method="post">
+                                    <div class="form-group">
+                                        <select asp-for="State" asp-items="ViewBag.States" class="form-control" name="state"></select>
+                                    </div>
+                                </form>
+                            </td>*@
+                            <td class="text-center align-baseline">
+                                <a class="icon-btn" style="width:24px;" asp-action="Edit" asp-route-id="@o.Id">
+                                    <img src="~/svg/editpenfile.svg" />
+                                </a>
+                            </td>
+                        </tr>
+
+                    }
+                </table>
+            }
+            else
+            {
+                <div class="text-center">Нет заказов</div>
+            }
+        </div>
+    </div>
+</section>

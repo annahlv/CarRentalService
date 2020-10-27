@@ -1,0 +1,12 @@
+﻿@page
+@model ConfirmEmailModel
+@{
+    ViewData["Title"] = "Благодарим за регистрацию!";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+    <main>
+        <div class="container-fluid col-12 col-lg-8 h-100 py-2 mt-5 text-center align-items-center">
+            <h2>@ViewData["Title"]</h2>
+            <a asp-area="Customer" asp-controller="CarList" asp-action="Index" class="btn orderbtn brdradius w-25 my-4">Перейти в каталог</a>
+        </div>
+    </main>

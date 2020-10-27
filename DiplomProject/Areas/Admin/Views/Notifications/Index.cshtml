@@ -1,0 +1,34 @@
+﻿@model AdminPanelViewModel
+@{
+    ViewBag.Title = "Уведомления";
+    Layout = "_Layout";
+}
+<section>
+    <div class="row">
+        <div class="col-12 text-left">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success mt-1">@TempData["message"]</div>
+            }
+            <h2 class="py-2">Уведомления</h2>
+        </div>
+        <div class="col-12">
+            @if (Model.Notifications.Count() > 0)
+            {
+                foreach (Notification n in Model.Notifications.Except(Model.Notifications.Where(p => p.Heading.Contains("Ваш")))) 
+                {
+                    <div class="alert p-2 shadow-sm">
+                        <h4>@n.Heading</h4>
+                        <p>
+                            @n.Text
+                        </p>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class="text-center">Нет уведомлений</div>
+            }
+        </div>
+    </div>
+</section>

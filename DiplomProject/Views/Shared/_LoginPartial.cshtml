@@ -1,0 +1,31 @@
+﻿@using DiplomProject.Models
+@using Microsoft.AspNetCore.Identity
+@using DiplomProject.Areas.Identity
+@using DiplomProject.Areas.Identity.Pages
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@if (SignInManager.IsSignedIn(User))
+{
+    //сделать ссылку на профиль, деление по ролям
+    <partial name="_UserDropdownMenu" />
+
+}
+else
+{
+    <li class="nav-item dropdown d-flex justify-content-center align-items-center">
+        <a class="nav-link text-uppercase dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#">
+            <img src="~/svg/userwhite.svg" />
+        </a>
+        <div class="dropdown-menu usernavmenu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Login">
+                Вход
+            </a>
+            <a class="dropdown-item" asp-area="Identity" asp-page="/Account/Register">
+                Регистрация
+            </a>
+        </div>
+    </li>
+
+}

@@ -1,0 +1,42 @@
+﻿@model OrderViewModel
+@{
+    ViewData["Title"] = "Ваши заказы";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+    <main class="profile-orders">
+        <div class="container-fluid ml-5 userside d-flex flex-wrap pt-4">
+            <partial name="_ProfileMenu" />
+            <section class="my-4 ml-5 orders user">
+
+                <h2>Ваши заказы</h2>
+                @if (Model.Orders.Count() > 0)
+                {
+                    foreach (Order order in Model.Orders.OrderByDescending(p => p.OrderPlaced))
+                    {
+                        var car = Model.Cars.Where(c => c.Id == order.CarId).FirstOrDefault();
+                        var state = Model.States.Where(p => p.Id == order.StateId).FirstOrDefault();
+                        <div class="card borderstyling my-2 w-100">
+                            <div class="d-flex flex-row border-bottom-0">
+                                <img src="~/images/@car.Photo" class="card-img-top rounded mr-4" alt="..." style="object-fit:contain; width:200px;">
+                                <ul class="list-unstyled  w-100">
+                                    <li><h5 class="mb-2">@(car.Brand + " " + car.Model) <span class="badge badge-lightblue xsfontsize ml-3 px-2">@Html.DisplayFor(p => state.State)</span></h5></li>
+                                    <li>Номер заказа: <span class="mr-3">@order.Id</span>
+                                    <li>Дата размещения: <span>@order.OrderPlaced.ToString("d")</span></li>
+                                    <li>Дата начала аренды: <span>@order.StartRent.Value.ToString("d")</span></li>
+                                    <li>Дата окончания аренды: <span>@order.EndRent.Value.ToString("d")</span></li>
+                                    <li>Предоплата: <span>@car.StartPrice.ToString() руб.</span></li>
+                                    <li>Цена в месяц: <span>@car.MonthlyPrice.ToString() руб.</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    }
+                } else
+                {
+                    <p>Нет активных заказов</p>
+                }
+
+            </section>
+        </div>
+    </main>
+

@@ -1,0 +1,36 @@
+﻿@model CarListViewModel
+@{
+    ViewData["Title"] = "Поиск";
+    Layout = "~/Views/Shared/_CarListLayout.cshtml";
+
+}
+<div class="container car_list col-12 text-left padding-header" style="margin-top:128px">
+    <h2 class="col-12 text-left my-2">Результаты поиска по запросу "@Model.SearchTerm"</h2>
+    <div class="pt-3 favorite_cars col-12 text-left">
+        <section>
+
+            @foreach (var car in Model.Cars)
+            {
+                <partial name="_CarCategory" model="car" />
+            }
+            @if (Model.Cars.Count() == 0)
+            {
+                <div class="container-fluid">
+
+                    <div class="row mt-lg-5 mb-lg-1">
+                        <div class="col-10 col-lg-2 text-left">
+                            <img class="w-100" src="~/images/magnifying-glass-with-car-color-icon-vector-28540740.jpg" />
+                        </div>
+                        <div class="col-12 col-lg-5 mt-4">
+                            <h3 class="mt-2">Ой! Такого в каталоге нет</h3>
+                            <p class="mt-2">
+                                Попробуйте изменить критерии поиска.<br />
+                                Хотите видеть в каталоге определенную машину? Напишите нам: info@dexcar.by
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            }
+        </section>
+    </div>
+</div>

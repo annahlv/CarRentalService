@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Car>
+@{
+    ViewBag.Title = "Все машины";
+    Layout = "_Layout";
+}
+<section class="py-2">
+    <div class="row">
+        <div class="col-12 text-left">
+            @if (TempData["message"] != null)
+            {
+                <div class="alert alert-success mt-1">@TempData["message"]</div>
+            }
+            <h2 class="py-2">Все машины</h2>
+        </div>
+        <div class="col-12">
+            <table class="table table-sm">
+                <tr>
+                    <th>ID</th>
+                    <th>Марка</th>
+                    <th>Модель</th>
+                    <th>Описание</th>
+                    <th>Стоимость/мес.</th>
+                    <th>Наличие в каталоге</th>
+                    <th class="text-center">Действия</th>
+                </tr>
+                @foreach (var item in Model)
+                {
+                <tr>
+                <td>@item.Id</td>
+                <td>@item.Brand</td>
+                <td>@item.Model</td>
+                <td>@item.Description</td>
+                <td>@item.MonthlyPrice.ToString() руб.</td>
+                <td>
+                    <form asp-action="MarkAsAvailable">
+                        <input type="hidden" name="id" value="@item.Id" />
+                        @if (item.IsAvailable)
+                        {
+                            <button type="submit" class="btn brdradius_sm btn-outline-dark">
+                                Доступно
+                            </button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn brdradius_sm btn-outline-dark">
+                                Недоступно
+                            </button>
+                        }
+                    </form>
+                </td>
+                <td class="text-center align-baseline">
+                    <form asp-action="Delete" method="post">
+                        <a asp-action="Edit" class="icon-btn" style="width:24px;" asp-route-carId="@item.Id">
+                            <img src="~/svg/editpenfile.svg" />
+                        </a>
+                        <input type="hidden" name="CarID" value="@item.Id" />
+                        <button type="submit" class="btn icon-btn p-0" style="width:24px;">
+                            <img src="~/svg/remove.svg" />
+                        </button>
+                    </form>
+                </td>
+                </tr>
+                }
+            </table>
+            <div class="text-center">
+                <a asp-action="Create" class="btn brdradius_sm button-color">Добавить</a>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,56 @@
+﻿@model ApplicationUser
+@{
+    ViewBag.Title = "Изменить профиль";
+    Layout = "_Layout";
+}
+<section>
+    <div class="row">
+        <div class="col-12 text-left">
+            <h2 class="py-2">Изменить профиль</h2>
+        </div>
+        <div class="col-12">
+            <form asp-action="Edit" method="post">
+                <input type="hidden" asp-for="Id" />
+                <div class="form-group">
+                    <label asp-for="Name">Имя</label>
+                    <div><span asp-validation-for="Name" class="text-danger"></span></div>
+                    <input asp-for="Name" class="form-control" value="@Model.Name" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Surname">Фамилия</label>
+                    <div><span asp-validation-for="Surname" class="text-danger"></span></div>
+                    <input asp-for="Surname" class="form-control" value="@Model.Surname" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Phone">Телефон</label>
+                    <div><span asp-validation-for="Phone" class="text-danger"></span></div>
+                    <input asp-for="Phone" class="form-control" value="@Model.Phone" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email">Email</label>
+                    <div><span asp-validation-for="Email" class="text-danger"></span></div>
+                    <input asp-for="Email" class="form-control" value="@Model.Email" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address">Адрес</label>
+                    <div><span asp-validation-for="Address" class="text-danger"></span></div>
+                    <input asp-for="Address" class="form-control" value="@Model.Address" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="City">Город</label>
+                    <div><span asp-validation-for="City" class="text-danger"></span></div>
+                    <input asp-for="City" class="form-control" value="@Model.City" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Photo">Фото профиля</label>
+                    <div><span asp-validation-for="Photo" class="text-danger"></span></div>
+                    <input asp-for="Photo" class="form-control" value="@Model.Photo" />
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-primary" type="submit">Сохранить</button>
+                    <a asp-action="Index" class="btn btn-secondary">Отмена</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

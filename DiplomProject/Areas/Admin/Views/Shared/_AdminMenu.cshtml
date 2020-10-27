@@ -1,0 +1,28 @@
+﻿@*<button class="btn d-none d-sm-block d-lg-none btn brdradius_sm button-color m-3" onclick="OpenCloseNav()">Open Menu</button>*@
+<nav id="profileMenu" class="profile-menu mb-4 bg-darkgrey adminSideMenu position-fixed" style="height:100%">
+    <ul class="nav flex-column" style="margin-top:72px;">
+        <li class="nav-item py-0 mb-2">
+            <a class="nav-link" asp-area="Admin" asp-controller="Users" asp-action="Index">
+                Клиенты
+            </a>
+        </li>
+        <li class="nav-item py-0 mb-2">
+            <a class="nav-link" asp-area="Admin" asp-controller="Order" asp-action="Index">
+                Заказы
+            </a>
+        </li>
+        <li class="nav-item py-0 mb-2">
+            <a class="nav-link" asp-area="Admin" asp-controller="Crud" asp-action="Index">
+                Каталог
+            </a>
+        </li>
+        <li class="nav-item py-0 mb-2">
+            <a class="nav-link" asp-area="Admin" asp-controller="Notifications" asp-action="Index">
+                Уведомления
+            </a>
+        </li>
+    </ul>
+</nav>
+
+
+

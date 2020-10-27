@@ -1,0 +1,30 @@
+﻿@model NotificationViewModel
+@{
+    ViewData["Title"] = "Уведомления";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+
+    <main class="profile-orders">
+        <div class="container-fluid ml-5 userside d-flex flex-wrap pt-4">
+            <partial name="_ProfileMenu" />
+            <section class="my-4 ml-5 orders user">
+        
+            <h2 class="mb-4">Уведомления</h2>
+            @if (Model.UserNotifications.Count() > 0)
+            {
+                @foreach (var n in Model.UserNotifications.Where(p => p.IsRead == false).OrderByDescending(p => p.Id))
+                {
+                    <div class="alert p-2 shadow-sm">
+                        <h4>@n.Notification.Heading</h4>
+                        <p>
+                            @n.Notification.Text
+                        </p>
+                    </div>
+                }
+            } else
+            {
+                <p>Нет уведомлений</p>
+            }
+            </section>
+        </div>
+    </main>

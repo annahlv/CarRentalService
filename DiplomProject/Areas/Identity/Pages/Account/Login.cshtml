@@ -1,0 +1,79 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Вход";
+}
+
+<main class="d-flex flex-column   align-items-center sign_in">
+    <div class="card shadow p-3 my-5">
+        <h2>Вход</h2>
+
+        <form class="needs-validation border-top border-bottom pb-3" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Email">Email</label>
+                <input type="email" class="form-control" asp-for="Input.Email" aria-describedby="emailHelp" placeholder="" required>
+                @*<span asp-validation-for="Input.Email" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password">Пароль</label>
+                <i onclick="show('currentPass')" class="fas fa-eye-slash float-right grey" id="display"></i>
+                <input asp-for="Input.Password" type="password" id="currentPass" class="form-control commanClass" placeholder="" required>
+                <small class="grey" asp-validation-for="Input.Password"></small>
+            </div>
+            <div class="form-group">
+                <div class="pretty p-image p-plain m-0">
+                    <input type="checkbox" asp-for="Input.RememberMe" />
+                    <div class="state">
+                        <img class="image" src="~/images/checkmark-24.png"><label style="padding-top: 1px">Запомнить меня</label>
+                    </div>
+                </div>
+                @*<div class="checkbox">
+                    <label asp-for="Input.RememberMe">
+                        <input asp-for="Input.RememberMe" />
+                        Запомнить меня
+                    </label>
+                </div>*@
+            </div>
+            <div class="row">
+                <div class="col-12 d-flex flex-row justify-content-between">
+                    @*<a class="pt-2" id="forgot-password" asp-page="./ForgotPassword">Забыли пароль?</a>*@
+                    @*<button type="submit" class="btn button-color float-right brdradius_sm">Sign in</button>*@
+                    <button class="btn button-color float-right brdradius_sm w-100" type="submit">Вход</button>
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-12 text-center">
+                <small class="footerbox">Еще нет аккаунта Dexcar?</small>
+            </div>
+            <div class="col-12 text-center">
+                <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl" class="red">Регистрация</a>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<script>
+    function show(a) {
+        var x = document.getElementById(a);
+        var c = x.previousElementSibling;
+        if (x.getAttribute('type') === "password") {
+            c.removeAttribute("class");
+            c.setAttribute("class", "fas fa-eye float-right grey");
+            x.removeAttribute("type");
+            x.setAttribute("type", "text");
+        } else {
+            x.removeAttribute("type");
+            x.setAttribute('type', 'password');
+            c.removeAttribute("class");
+            c.setAttribute("class", "fas fa-eye-slash float-right grey");
+        }
+    }
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,74 @@
+﻿<!DOCTYPE html>
+<!-- Admin area -->
+<html class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>@ViewBag.Title - Dexcar</title>
+
+    <link rel="icon" href="~/images/favicon.png" />
+
+    <partial name="_CommonStylesPartial" />
+    <!-- Datatable -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/css/dataTables.bootstrap4.min.css" integrity="sha256-F+DaKAClQut87heMIC6oThARMuWne8+WzxIDT7jXuPA=" crossorigin="anonymous" />
+    <!-- Custom styles for this template -->
+    <environment include="Development">
+        <link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet" />
+        <link href="~/css/site.css" rel="stylesheet" />
+        <link href="~/css/AdminStyleSheet.css" rel="stylesheet" />
+
+    </environment>
+    <environment exclude="Development">
+        <link href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css" rel="stylesheet" />
+        <link href="~/css/site.min.css" rel="stylesheet" />
+        <link href="~/css/AdminStyleSheet.min.css" rel="stylesheet" />
+    </environment>
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header class="fixed-top adminsite">
+        <nav class="navbar blackbox bg-darkgrey">
+            <button class="navbar-toggler admin" type="button" onclick="TrigBtnActive()" id="menuTiggBtn"><img src="/svg/toggler.svg"></button>
+            
+            <a class="d-flex ml-2  pr-2" asp-area="Customer" asp-controller="Home" asp-action="Index"><img class="img-fluid" src="~/svg/dexcar-logo.svg" /></a>
+            <ul class="nav d-none d-lg-flex align-items-center ">
+                <partial name="_UserDropdownMenu" />
+            </ul>
+        </nav>
+    </header>
+    <partial name="_CookieConsentPartial" />
+    <main class="profile-orders adminProfile">
+        <div class="container-fluid h-100">
+            <partial name="_AdminMenu" />
+            <div class="mt-2">
+                @RenderBody()
+            </div>
+        </div>
+    </main>
+    <footer class="pb-1 d-flex mt-auto footerfont">
+        
+    </footer>
+
+    <partial name="_CommonScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js" integrity="sha256-t5ZQTZsbQi8NxszC10CseKjJ5QeMw5NINtOXQrESGSU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables-fixedheader/2.1.1/dataTables.fixedHeader.min.js" integrity="sha256-KfJFtPOLGCpGuqzclWFBurt6TzJ9domiu3I+NyeNkqk=" crossorigin="anonymous"></script>
+    <script>
+        $('main').css('margin-top', $('header').height());
+    </script>
+
+    <environment include="Development">
+        <script src="~/js/site.js"></script>
+        <script src="~/js/common.js"></script>
+        <script src="~/js/admin/adminsite.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="~/js/site.min.js"></script>
+        <script src="~/js/admin/adminsite.min.js"></script>>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

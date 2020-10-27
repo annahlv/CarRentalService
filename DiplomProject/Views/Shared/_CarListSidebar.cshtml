@@ -1,0 +1,11 @@
+﻿@model CarListViewModel
+<nav class="navbar-expand-md px-0 mx-0">
+    <button type="button" class="btn brdradius_sm button-color mt-3 d-block d-md-none  sidebarbutton" data-toggle="collapse" data-target="#FilterCars">
+        <i class="fa fa-filter text-white" aria-hidden="true"></i> &nbsp;
+    </button>
+    <div id="FilterCars" class="collapse  navbar-collapse">
+        <div class="bg-white sidebar" style="margin-top:100px;height:100%;">
+            <partial name="_Filter" />
+        </div>
+    </div>
+</nav>

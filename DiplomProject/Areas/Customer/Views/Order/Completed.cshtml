@@ -1,0 +1,28 @@
+﻿
+@{
+    ViewData["Title"] = "Заказ оформлен";
+    Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
+}
+<main>
+    <div class="container-fluid padding-header" style="margin-top:48px">
+        <div class="row mt-lg-4 mb-lg-1">
+            <div class="col-6 col-lg-4">
+                <img class="w-100" src="~/images/form.png" />
+            </div>
+            <div class="col-6 col-lg-8 mt-lg-5">
+                <h1 class="my-4">
+                    Ваш заказ размещен!
+                </h1>
+                <p>
+                    Наш менеджер свяжется с вами для дальнейшего оформления заказа.
+                    <br />
+                    Вы можете просмотреть информацию о заказе в личном профиле.
+                </p>
+                <a class="btn orderbtn brdradius w-auto px-4 my-3" asp-area="Customer" asp-action="Orders" asp-controller="Profile">
+                    Перейти в профиль
+                </a>
+            </div>
+        </div>
+
+    </div>
+</main>

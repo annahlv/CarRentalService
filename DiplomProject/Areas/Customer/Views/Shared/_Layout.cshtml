@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html>
+<!-- Customer area -->
+<html class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>@ViewBag.Title - Dexcar</title>
+
+    <link rel="icon" href="~/images/favicon.png" />
+
+    <partial name="_CommonStylesPartial" />
+    <!-- Datetime picker from tempusdominius -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css" integrity="sha256-XPTBwC3SBoWHSmKasAk01c08M6sIA5gF5+sRxqak2Qs=" crossorigin="anonymous" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" integrity="sha256-PZLhE6wwMbg4AB3d35ZdBF9HD/dI/y4RazA3iRDurss=" crossorigin="anonymous" />
+    <environment include="Development">
+        <link href="~/css/site.css" rel="stylesheet" />
+    </environment>
+    <environment exclude="Development">
+        <link href="~/css/site.min.css" rel="stylesheet" />
+    </environment>
+</head>
+
+<body class="d-flex flex-column h-100">
+    <header class="fixed-top gradient">
+        @*<partial name="_HeaderGreybox" />*@
+        <nav class="navbar navbar-dark blackbox bg-black my-0 p-0">
+            <div class="row w-100 topmenu  padding-header">
+                <div class="col-6 col-lg-5">
+                    <div class="row">
+                        <div class="col-2">
+                            <button class="navbar-toggler openbtn my-3" onclick="openNav()">
+                                <img src="~/svg/toggler.svg" />
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-10 col-lg-2 d-flex align-items-center justify-content-center">
+                    <a asp-area="Customer" asp-controller="Home" asp-action="Index"><img class="img-fluid" src="~/svg/dexcar-logo.svg" /></a>
+                </div>
+
+                <div class="col-5 text-right d-none d-lg-flex align-items-center justify-content-end">
+
+                    <ul class="nav flex-row d-xl-flex lastnav">
+                        <li class="nav-item">
+                            <form method="get" asp-action="Index" asp-controller="Search" autocomplete="off">
+                                <div class="input-group">
+                                    <input type="text" class="search border-bottom" name="searchString" placeholder="Поиск авто..." />
+                                    <div class="input-group-append">
+                                        <button type="submit" id="nav-search-btn_submit" class="nav-link nav-search-btn text-uppercase d-flex justify-content-center align-items-center" title="Search">
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </li>
+                        <li class="nav-item">
+                            <a asp-area="Customer" asp-controller="Favorite" asp-action="Index" class="nav-link text-uppercase d-flex justify-content-center align-items-center">
+                                <img src="/svg/star.svg" />
+                            </a>
+                        </li>
+                        <partial name="_LoginPartial" />
+                    </ul>
+                </div>
+
+            </div>
+
+            <div id="mySidepanel" class="sidepanel">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <a asp-area="Customer" asp-controller="CarList" asp-action="Index">Каталог</a>
+                <a asp-area="Customer" asp-controller="Home" asp-action="About">О компании</a>
+                <a asp-area="Customer" asp-controller="Home" asp-action="Contacts">Контакты</a>
+            </div>
+        </nav>
+    </header>
+
+
+    <partial name="_CookieConsentPartial" />
+
+    @*<main class="profile-orders">
+            <div class="container-fluid  d-flex flex-wrap pt-4">
+                <partial name="_ProfileMenu" model="@Model.Profile" />
+                @RenderBody()
+            </div>
+        </main>*@
+
+    @RenderBody()
+
+    <partial name="_CommonScriptsPartial" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js" integrity="sha256-z0oKYg6xiLq3yJGsp/LsY9XykbweQlHl42jHv2XTBz4=" crossorigin="anonymous"></script>
+    <script>
+        $('main').css('margin-top', $('header').height());
+    </script>
+
+    <environment include="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha256-P93G0oq6PBPWTP1IR8Mz/0jHHUpaWL0aBJTKauisG7Q=" crossorigin="anonymous"></script>
+        <script src="~/js/site.js"></script>
+        <script src="~/js/common.js"></script>
+    </environment>
+    <environment exclude="Development">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js" integrity="sha256-P93G0oq6PBPWTP1IR8Mz/0jHHUpaWL0aBJTKauisG7Q=" crossorigin="anonymous"></script>
+        <script src="~/js/site.min.js"></script>
+    </environment>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

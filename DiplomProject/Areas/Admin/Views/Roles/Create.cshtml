@@ -1,0 +1,21 @@
+﻿@model string
+@{
+    ViewBag.Title = "Добавить роль";
+    Layout = "_Layout";
+}
+<section class="container-fluid col-12 col-lg-8 h-100 py-2">
+    <div class="text-left">
+        <h2 class="py-2">Добавить роль</h2>
+    </div>
+    <div>
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <form asp-action="Create" method="post">
+            <div class="form-group">
+                <label for="name">Новая роль</label>
+                <input name="name" class="form-control" />
+            </div>
+            <button type="submit" class="btn button-color">Добавить</button>
+        </form>
+    </div>
+</section>

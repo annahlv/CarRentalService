@@ -1,0 +1,54 @@
+﻿@model AdminPanelViewModel
+@{
+    ViewBag.Title = "Список пользователей";
+}
+
+    <section>
+        <div class="row">
+            <div class="col-12 text-left">
+                @if (TempData["message"] != null)
+                {
+                    <div class="alert alert-success mt-1">@TempData["message"]</div>
+                }
+                <h2 class="py-2">Пользователи</h2>
+            </div>
+            <div class="col-12">
+                @if (Model.Users.Count() > 0)
+                {
+                    <table class="table">
+                        <tr>
+                            <th>Имя</th>
+                            <th>Фамилия</th>
+                            <th>Email</th>
+                            <th>Город</th>
+                            <th>Адрес</th>
+                            <th>Телефон</th>
+                        </tr>
+                        @foreach (ApplicationUser user in Model.Users)
+                        {
+                            <tr>
+                                <td>@user.Name</td>
+                                <td>@user.Surname</td>
+                                <td>@user.Email</td>
+                                <td>@user.City</td>
+                                <td>@user.Address</td>
+                                <td>@user.Phone</td>
+                            </tr>
+
+                        }
+                    </table>
+                }
+                else
+                {
+                    <div class="text-center">Нет пользователей</div>
+                }
+                @*<div class="text-center">
+                    <a asp-action="Create" class="btn btn-primary">Добавить</a>
+                </div>*@
+
+            </div>
+
+        </div>
+    </section>
+
+

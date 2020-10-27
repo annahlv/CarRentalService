@@ -1,0 +1,78 @@
+﻿@model CheckoutViewModel
+@{
+    ViewData["Title"] = "Оформить заказ";
+};
+
+<main>
+    <div class="container h-100 py-lg-4 my-2">
+        <h2 class="py-2">Оформление заказа</h2>
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-4 order-md-2 card h-50 py-2 ml-md-4">
+                <h4>
+                    @(Model.Car.Brand + " " + Model.Car.Model )
+                </h4>
+                <div class="col-12 d-flex flex-column justify-content-center align-items-center ">
+                    <img class="img-fluid" src="~/images/@(!string.IsNullOrEmpty(Model.Car.Photo) ? Model.Car.Photo : "car_model.png")" />
+                </div>
+                <div class="col-12">
+                    <ul class="list-unstyled">
+                        <li class="my-3">
+                            Предоплата: <b>@Model.Car.StartPrice.ToString() руб.</b>
+                        </li>
+                        @*<li class="my-3">Километры: <br />@(Model.Mileage.ToString() + " км")</li>*@
+                        <li class="my-3">Цена в месяц: <b>@Model.Car.MonthlyPrice.ToString() руб.</b></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-7 order-md-1 card shadow py-4">
+                <form asp-action="Checkout" method="post" class="px-4">
+                    <h3 class="pt-2">Личные данные</h3>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Имя</label><input asp-for="Name" class="form-control" required />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Фамилия</label><input asp-for="Surname" class="form-control" required />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Телефон</label><input asp-for="Phone" class="form-control" type="tel" placeholder="+375(  )   -  -  -" required />
+                    </div>
+                    <h3 class="pt-2">Адрес</h3>
+
+                    <div class="form-group">
+                        <label>Адрес</label><input asp-for="Address" class="form-control" required />
+                    </div>
+                    <div class="form-group">
+                        <label>Город</label><input asp-for="City" class="form-control" required />
+                    </div>
+
+                    <h3 class="pt-2">Срок аренды</h3>
+                    <p class="small">Даты аренды могут быть скорректированы по согласованию с менеджером</p>
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            <label>Желаемая дата получения</label><input asp-for="StartRent" class="form-control" type="date" />
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label>Желаемая дата окончания</label><input asp-for="EndRent" class="form-control" type="date" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="pretty p-image p-plain m-0">
+                            <input type="checkbox" required />
+                            <div class="state">
+                                <img class="image" src="~/images/checkmark-24.png"><label style="padding-top: 1px">Я ознакомлен и согласен с</label>
+                            </div>
+                        </div>         
+                        <a class="link" style="padding-top: 1px; font-size:14px;" href="~/DexcarTermsOfUse.pdf" target="_blank">условиями аренды</a>
+                    </div>
+                    <div class="text-right pt-2">
+                        <input class="btn brdradius_sm button-color" type="submit" value="Оформить заказ" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</main>

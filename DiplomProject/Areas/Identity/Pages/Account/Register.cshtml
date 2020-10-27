@@ -1,0 +1,58 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Регистрация";
+}
+
+<main class="bg-white sign_up_1 d-flex flex-column align-items-center">
+    <div class="card shadow p-3 my-5">
+        <h2>Регистрация</h2>
+        <form class="border-top border-bottom pb-3" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Input.Email">Email</label>
+                <input asp-for="Input.Email" type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="" required>
+                @*<span asp-validation-for="Input.Email" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.Password">Пароль</label>
+                <input asp-for="Input.Password" id="currentPass" class="form-control commanClass" placeholder="" required>
+                @*<span asp-validation-for="Input.Password" class="grey">Не менее 8 символов, включая заглавную букву, а также цифру и знак препинания</span>*@
+                @*<span asp-validation-for="Input.Password" class="text-danger"></span>*@
+            </div>
+            <div class="form-group">
+                <label asp-for="Input.ConfirmPassword">Подтвердите пароль</label>
+                <input asp-for="Input.ConfirmPassword" onblur="pswconfirmation()" id="currentPass2" class="form-control" placeholder="" required>
+                <span asp-validation-for="Input.ConfirmPassword" class="red confirmError" hidden>Пароли не совпадают</span>
+            </div>
+            <div class="row">
+                <div class="col-12 float-right mt-3">
+                    <input type="submit" class="btn button-color float-right brdradius_sm w-100" value="Регистрация" />
+                </div>
+            </div>
+        </form>
+        <div class="row">
+            <div class="col-12 text-center">
+                <small class="footerbox">Уже есть аккаунт?</small>
+            </div>
+            <div class="col-12 text-center">
+                <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" class="red">Вход</a>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script>
+
+
+    function pswconfirmation() {
+        if ($('#currentPass').val() !== $('#currentPass2').val() || $('#currentPass').val() === "") {
+            $('.confirmError').removeAttr('hidden');
+            $('.registration button[type="submit"]').attr('disabled', true);
+        }
+    }
+</script>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

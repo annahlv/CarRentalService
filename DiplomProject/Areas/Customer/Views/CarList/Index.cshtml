@@ -1,0 +1,49 @@
+﻿@model CarListViewModel
+@{
+    ViewData["Title"] = "Каталог";
+    Layout = "~/Views/Shared/_CarListLayout.cshtml";
+    
+}
+
+    <div class="container-fluid car_list"> 
+        <nav class="navbar-expand-md px-0 mx-0" style="margin-top:96px">
+            <button type="button" class="btn brdradius_sm button-color mt-5 d-block d-md-none  sidebarbutton" data-toggle="collapse" data-target="#FilterCars">
+                Фильтр
+            </button>
+            <div id="FilterCars" class="collapse  navbar-collapse">
+                <div class="bg-white sidebar" >
+                    <partial name="_Filter" />
+                </div>
+            </div>
+        </nav>
+        <div class="pt-2 selected_cars text-left" >
+            <section>
+                @foreach (var car in Model.Cars.Where(p => p.IsAvailable == true))
+                {
+                    <partial name="_CarCategory" model="car" />
+                }
+                @foreach (var car in Model.Cars.Where(p => p.IsAvailable == false))
+                {
+                    <partial name="_CarCategory" model="car" />
+                }
+                @if (Model.Cars.Count() == 0)
+                {
+                    <div class="container-fluid padding-header">
+
+                        <div class="row mt-lg-5 mb-lg-1">
+                            <div class="col-10 col-lg-4 text-right">
+                                <img class="w-50" src="~/images/magnifying-glass-with-car-color-icon-vector-28540740.jpg" />
+                            </div>
+                            <div class="col-12 col-lg-5 mt-4">
+                                <h3>Ой! Такого в каталоге нет</h3>
+                                <p class="mt-2">
+                                    Попробуйте изменить критерии поиска.<br />
+                                    Хотите видеть в каталоге определенную машину? Напишите нам: info@dexcar.by
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </section>
+        </div>
+    </div>
